@@ -23,7 +23,7 @@ Features:
   is a picture or an iframe. Example: bilder/image.jpg?v=3838
 
 To be done:
-• make accessable for div elements wich are used within the page.
+• make accessible for div elements which are used within the page.
 
 
 NSB Box v1.0.0 | 2018
