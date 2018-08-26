@@ -5,7 +5,7 @@ Yes, but it's not easy to find a lightbox which is able to float
 windows and images in a very simple way.
 Programmed as an hommage to the «thickbox» of codylindley.com 
 with the cool clame, "one box to rule them all", I wanted to program
-a simple floating script wich uses tha latest version of jQuery and 
+a simple floating script which uses the latest version of jQuery and 
 which is mobile compatible.
 Yes, you can swipe the pictures with your fingers. 
 
