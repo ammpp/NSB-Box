@@ -27,7 +27,7 @@ To be done:
 
 
 NSB Box v1.0.0 | 2018
-(c) NSB Media
+NSB Media
 Lindenstrasse 16
 CH-6340 Baar
 www.nsbmedia.ch
