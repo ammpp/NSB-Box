@@ -1,4 +1,4 @@
-/*! NSB Box v1.0.3 | (c) NSB Media, Lindenstrasse 16, 6340 Baar, www.nsbmedia.ch | Etienne Schorro - 2018 */
+/*! NSB Box v1.0.4 | (c) NSB Media, Lindenstrasse 16, 6340 Baar, www.nsbmedia.ch | Etienne Schorro - 2022 */
 var animBreake = false;
 var currentLink = 0;
 function isEndOf(origin, target){
@@ -46,8 +46,8 @@ function nsbBOXImgForw(){
 		}
 	}
 }
-$(document).ready(function(){
-	$(".nsbbox").on("click", function(event){
+function nsbBOXinit(){
+	$(document).on('click','.nsbbox', function(event){
 		event.stopPropagation();
 		img = false;
 		iframe = true;
@@ -72,15 +72,15 @@ $(document).ready(function(){
         		nsbBOXImgForw();
     		}
 		});
-		if(isEndOf(event.currentTarget.href.split("?")[0], ".jpg") || isEndOf(event.currentTarget.href.split("?")[0], ".JPG") || isEndOf(event.currentTarget.href.split("?")[0], ".jpeg") || isEndOf(event.currentTarget.href.split("?")[0], ".JPEG")){
+		if(isEndOf(event.currentTarget.href.split("?")[0], ".jpg") || isEndOf(event.currentTarget.href.split("?")[0], ".JPG") || isEndOf(event.currentTarget.href.split("?")[0], ".jpeg") || isEndOf(event.currentTarget.href.split("?")[0], ".JPEG")){
 			img = true;
 			iframe = false;
 		}
-		if(isEndOf(event.currentTarget.href.split("?")[0], ".png") || isEndOf(event.currentTarget.href.split("?")[0], ".PNG")){
+		if(isEndOf(event.currentTarget.href.split("?")[0], ".png") || isEndOf(event.currentTarget.href.split("?")[0], ".PNG")){
 			img = true;
 			iframe = false;
 		}
-		if(isEndOf(event.currentTarget.href.split("?")[0], ".gif") || isEndOf(event.currentTarget.href.split("?")[0], ".GIF")){
+		if(isEndOf(event.currentTarget.href.split("?")[0], ".gif") || isEndOf(event.currentTarget.href.split("?")[0], ".GIF")){
 			img = true;
 			iframe = false;
 		}
@@ -103,17 +103,17 @@ $(document).ready(function(){
 			linksArr = new Array();
 			imagesArr = $("a.nsbbox").toArray();
 			imagesArr.forEach(function(iA){
-				if(isEndOf(iA.href.split("?")[0], ".jpg") || isEndOf(iA.href.split("?")[0], ".JPG") || isEndOf(iA.href.split("?")[0], ".jpeg") || isEndOf(iA.href.split("?")[0], ".JPEG")){
+				if(isEndOf(iA.href.split("?")[0], ".jpg") || isEndOf(iA.href.split("?")[0], ".JPG") || isEndOf(iA.href.split("?")[0], ".jpeg") || isEndOf(iA.href.split("?")[0], ".JPEG")){
 					linksTextArr[countImgLink] = iA.title;
 					linksArr[countImgLink] = iA.href;
 					countImgLink++;
 				}
-				if(isEndOf(iA.href.split("?")[0], ".png") || isEndOf(iA.href.split("?")[0], ".PNG")){
+				if(isEndOf(iA.href.split("?")[0], ".png") || isEndOf(iA.href.split("?")[0], ".PNG")){
 					linksTextArr[countImgLink] = iA.title;
 					linksArr[countImgLink] = iA.href;
 					countImgLink++;
 				}
-				if(isEndOf(iA.href.split("?")[0], ".gif") || isEndOf(iA.href.split("?")[0], ".GIF")){
+				if(isEndOf(iA.href.split("?")[0], ".gif") || isEndOf(iA.href.split("?")[0], ".GIF")){
 					linksTextArr[countImgLink] = iA.title;
 					linksArr[countImgLink] = iA.href;
 					countImgLink++;
@@ -177,4 +177,7 @@ $(document).ready(function(){
 		}
 		return false;		
 	});
+}
+$(document).ready(function(){
+	nsbBOXinit();
 });
