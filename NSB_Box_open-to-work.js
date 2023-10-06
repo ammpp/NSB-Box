@@ -1,8 +1,11 @@
-/*! NSB Box v1.0.4 | (c) NSB Media, Lindenstrasse 16, 6340 Baar, www.nsbmedia.ch | Etienne Schorro - 2022 */
+/*! NSB Box v1.0.5 | (c) NSB Media, Lindenstrasse 16, 6340 Baar, www.nsbmedia.ch | Etienne Schorro - 2022 */
 var animBreake = false;
 var currentLink = 0;
 function isEndOf(origin, target){
-  return (origin.substr(target.length * -1, target.length) === target);
+    return origin.endsWith(target);
+}
+function checkFileExtension(url, extensions) {
+    return extensions.some(ext => isEndOf(url, ext));
 }
 function closeNSBBox(){
 	$("#nsbbox").fadeOut(300)
@@ -72,15 +75,11 @@ function nsbBOXinit(){
         		nsbBOXImgForw();
     		}
 		});
-		if(isEndOf(event.currentTarget.href.split("?")[0], ".jpg") || isEndOf(event.currentTarget.href.split("?")[0], ".JPG") || isEndOf(event.currentTarget.href.split("?")[0], ".jpeg") || isEndOf(event.currentTarget.href.split("?")[0], ".JPEG")){
-			img = true;
-			iframe = false;
-		}
-		if(isEndOf(event.currentTarget.href.split("?")[0], ".png") || isEndOf(event.currentTarget.href.split("?")[0], ".PNG")){
-			img = true;
-			iframe = false;
-		}
-		if(isEndOf(event.currentTarget.href.split("?")[0], ".gif") || isEndOf(event.currentTarget.href.split("?")[0], ".GIF")){
+		var imageUrl = event.currentTarget.href.split("?")[0];
+        var imageExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+        var isImage = checkFileExtension(imageUrl, imageExtensions);
+
+        if (isImage || $(this).data('image')) {
 			img = true;
 			iframe = false;
 		}
